@@ -1,0 +1,36 @@
+<head th:fragment="pageHeader(titulo, jsPath, cssPath)">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+    <link th:href="@{${cssPath}}" rel="stylesheet"/>
+    <script th:src="@{${jsPath}}" defer type="module"></script>
+    <title th:text="${titulo}"></title>
+</head>
+
+<!-- Fragment Card Empresa Content -->
+<div th:data-id-card-empresa="${emp.idEmpresa}" th:fragment="card_empresa_content(emp)" class="card__empresa_content">
+    <p class="card__empresa_content__id" th:text="'#' + ${emp.idEmpresa.substring(0, 13)}">#81er0d1
+        -321321</p>
+    <p class="card__empresa_content__name"><span th:text="#{card_empresa_conteudo_nome} + ':'">Nome:</span>
+        <span th:text="${emp.nome}">Goggle</span></p>
+    <p class="card__empresa_content__localizacao"><span th:text="#{card_empresa_conteudo_estado} + ':'">Estado:</span>
+        <span
+            th:text="${emp.logradouro.cidade.estado.nome}">Estados
+                        Unidos</span></p>
+</div>
+
+<div th:data-id-card-empresa="${emp.idEmpresa}" th:fragment="card_empresa_content_selected(emp)" class="card__empresa_content--SELECT">
+    <p class="card__empresa_content__id--SELECT" th:text="'#' + ${emp.idEmpresa.substring(0, 13)}">#81er0d1
+        -321321</p>
+    <p class="card__empresa_content__name--SELECT"><span th:text="#{card_empresa_conteudo_nome} + ':'">Nome:</span>
+        <span th:text="${emp.nome}">Goggle</span></p>
+    <p class="card__empresa_content__localizacao--SELECT"><span th:text="#{card_empresa_conteudo_estado} + ':'">Estado
+        :</span> <span
+            th:text="${emp.logradouro.cidade.estado.nome}">Estados
+                        Unidos</span></p>
+</div>

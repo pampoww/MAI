@@ -1,0 +1,39 @@
+{
+	"id": "cddea921-9f5e-48fc-8567-38da5b1149e2",
+	"name": "routes",
+	"values": [
+		{
+			"key": "empresa",
+			"value": "http://localhost:8080/empresa",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "usuario",
+			"value": "http://localhost:8080/usuario",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "logradouro",
+			"value": "http://localhost:8080/logradouro",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "cidade",
+			"value": "http://localhost:8080/cidade",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "estado",
+			"value": "http://localhost:8080/estado",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-04-13T18:06:13.484Z",
+	"_postman_exported_using": "Postman/10.24.19"
+}

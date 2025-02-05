@@ -1,0 +1,22 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head
+        th:replace="~{fragments/pageRelatedContent :: pageHeader(#{mensagem_empresa_titulo}, '/js/mensagem_empresa.js', '/css/mensagem_empresa.css')}"></head>
+<body class="container"
+      style="display: flex;flex-direction: column;justify-content: center;align-items: center;height: 100dvh">
+<div>
+    <h1 th:text="'Envie uma mensagem para ' + ${empresa.nome}"></h1>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: space-between;">
+    <form th:action="@{/empresas/{idEmpresa}/mensagem(idEmpresa = ${empresa.idEmpresa})}" method="post">
+        <input name="mensagem" placeholder="Mensagem" type="text" style="outline: none"/>
+        <button>
+            Send
+        </button>
+    </form>
+    <div th:if="${param.enviada}">
+        <p style="color: green">Mensagem enviada</p>
+    </div>
+</div>
+</body>
+</html>

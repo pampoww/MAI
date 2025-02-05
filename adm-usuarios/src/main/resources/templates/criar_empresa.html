@@ -1,0 +1,82 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head
+        th:replace="~{fragments/pageRelatedContent :: pageHeader(#{criar_empresa_titulo}, '/js/criar_empresa.js', '/css/criar_empresa.css')}"></head>
+<body>
+<div class="container" style="display: flex;flex-direction: column;justify-content: center;align-items: center;height: 100dvh">
+    <div class="row">
+        <h1 th:text="#{criar_empresa__pagina_titulo}">Criar Empresa</h1>
+    </div>
+    <div class="row" style="width: 50rem">
+        <form th:object="${empresa}" action="/inserir-empresa" method="post">
+            <div>
+                <label for="nome_empresa" th:text="#{criar_empresa_nome-empresa}">Nome da empresa</label>
+                <input class="form-control" id="nome_empresa" type="text" required th:field="*{nome}"
+                       th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{nome}"></div>
+                <br>
+            </div>
+            <div>
+                <label for="login_empresa">Email</label>
+                <input class="form-control" id="login_empresa" type="text" required th:field="*{usuario.login}"
+                       th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{usuario.login}"></div>
+                <br>
+            </div>
+            <div>
+                <label for="tipo-plano_empresa" th:text="#{criar_empresa_tipo-plano}">Tipo de Plano</label>
+                <select class="form-select" id="tipo-plano_empresa" th:field="*{tipoPlano}">
+                    <option th:each="tp : ${tipoPlano}" th:value="${tp}"
+                            th:text="${tp.toString().substring(0, 1).toUpperCase() + tp.toString().substring(1).toLowerCase()}">
+                </select><br>
+            </div>
+            <div>
+                <label for="cnpj_empresa">CNPJ</label>
+                <input class="form-control" id="cnpj_empresa" minlength="14"  maxlength="14" type="text" required
+                       th:field="*{cnpj}" th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{cnpj}"></div>
+                <br>
+            </div>
+            <div>
+                <label for="cep_empresa" th:text="#{criar_empresa_cep}">CEP</label>
+                <input class="form-control" id="cep_empresa" type="text"  th:field="*{logradouro.cep}" required
+                       th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{logradouro.cep}"></div>
+                <br>
+            </div>
+            <div>
+                <label for="nome_cidade_empresa" th:text="#{criar_empresa_nome-cidade}">Nome da Cidade</label>
+                 <input class="form-control" id="nome_cidade_empresa" type="text"
+                        th:field="*{logradouro.cidade.nome}" required th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{logradouro.cidade.nome}"></div>
+                <br>
+            </div>
+            <div>
+                <label for="nome_empresa_empresa" th:text="#{criar_empresa_nome-estado}">Nome do Estado</label>
+                <input class="form-control" id="nome_empresa_empresa" type="text"
+                       th:field="*{logradouro.cidade.estado.nome}" required th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{logradouro.cidade.estado.nome}"></div>
+                <br>
+            </div>
+            <div>
+                <label for="sigla_empresa_empresa" th:text="#{criar_empresa_sigla-estado}">Sigla do Estado</label>
+                <input class="form-control" id="sigla_empresa_empresa" type="text" th:field="*{logradouro.cidade.estado.sigla}" required th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{logradouro.cidade.estado.sigla}"></div>
+                <br>
+            </div>
+            <div>
+                <label for="senha_empresa" th:text="#{criar_empresa_senha}">Senha</label>
+                <input class="form-control" id="senha_empresa" type="password"
+                       th:field="*{usuario.senha}" required
+                       th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{usuario.senha}"></div>
+                <br>
+            </div>
+
+            <button style="margin: 0 auto" type="submit" class="btn btn-primary">Cadastrar Empresa</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

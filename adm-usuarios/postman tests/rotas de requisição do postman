@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "d7cb1267-3bda-4f44-b18c-e5380d079b66",
+		"name": "adm-usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34165672"
+	},
+	"item": [
+		{
+			"name": "Empresa",
+			"item": [
+				{
+					"name": "Criar empresa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "2a240023-b7db-45d6-8af2-434617200945",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Goggle\",\r\n    \"cnpj\": \"12345678910\",\r\n    \"usuario\": {\r\n        \"login\": \"goo@gmail.com\",\r\n        \"senha\": \"j92-1djd##\"\r\n    },\r\n    \"logradouro\": {\r\n        \"cep\": \"12345600\",\r\n        \"cidade\": {\r\n            \"nome\": \"São Paulo\",\r\n            \"estado\": {\r\n                \"sigla\": \"SP\",\r\n                \"nome\": \"São Paulo\"\r\n            }\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{empresa}}/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar todas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{empresa}}/find/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{empresa}}/find/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{empresa}}/delete/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{empresa}}/update/{id}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Encontrar todas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{usuario}}/find/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{usuario}}/find/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{usuario}}/update/{id}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logradouro",
+			"item": [
+				{
+					"name": "Encontrar todas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{logradouro}}/find/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{logradouro}}/find/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{logradouro}}/update/{id}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estado",
+			"item": [
+				{
+					"name": "Encontrar todas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{estado}}/find/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{estado}}/find/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{estado}}/update/{id}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cidade",
+			"item": [
+				{
+					"name": "Encontrar todas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{cidade}}/find/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{cidade}}/find/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{cidade}}/update/{id}"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
